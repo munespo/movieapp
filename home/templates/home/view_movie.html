@@ -1,0 +1,61 @@
+{%  extends 'home/base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block content %}
+    
+
+<br>
+<br>
+
+<link rel="stylesheet" href="{% static 'polls/css/style.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+
+  {% if videoob %}
+<div>
+  <button type="button"><a  href="{% url 'video-delete' videoob.pk %}"> Delete Project</a></button>
+  <button type="button"><a  href="{% url 'video-update' videoob.pk %}"> Edit project</a></button>
+  
+  <button type="button"><a  href="{% url 'home'  %}"> Back to Home</a></button>
+  <h1><br></h1>
+
+</div>
+  
+<p>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+    <div class="container-fluid">
+      <!-- Control the column width, and how they should appear on different devices -->
+      <div class="row">
+        <div class="col-sm-3" ><img src="/media/{{videoob.thumbnail}}" alt="no image" class="img-thumbnail" width="200" height="300">
+          <h1>{{videoob.name}}</h1>
+          <br>
+          <h3>{{videoob.project_manager}}</h3>
+          
+          
+        
+        </div>
+        <div class="col-sm-6 " style="background-color:orange;">
+          <video width="520" height="240" controls>
+            <source src="/media/{{videoob.videoFile}}" type="video/mp4">
+            
+          
+          </video>
+        
+        </div>
+      </div>
+      <br>
+      
+   
+  
+     
+     
+    </div>
+
+  {% else %}
+  <p>No movie  available </p>
+  {% endif %}
+ 
+ 
+{% endblock %}

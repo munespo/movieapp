@@ -1,0 +1,50 @@
+{%  extends 'home/base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'polls/css/style.css' %}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% if videoob %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">  </th>
+      <th scope="col">Movie Name</th>
+      <th scope="col">Movie Type</th>
+      <th scope="col">Movie Client</th>
+      <th scope="col">Main Actor</th>
+      <th scope="col">Creation date</th>
+      <th scope="col">Modified date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for video in videoob %}
+    <tr>
+      <th scope="row"><a href="view_movie/{{video.id}}"><img src="/media/{{video.thumbnail}}" alt="no image" class="img-thumbnail" width="70" height="70"></a></th>
+      
+      <td>{{video.name}}</td>
+      <td>{{video.type}}</td>
+      <td>{{video.client}}</td>
+      <td>{{video.project_manager}}</td>
+      <td>{{video.created_date}}</td>
+      <td>{{video.edited_date}}</td>
+   
+    </tr>
+    
+    {% endfor %}
+    
+  </tbody>
+</table>
+  {% else %}
+<p>No movie information available </p>
+{% endif %}
+
+
+
+{% endblock %}

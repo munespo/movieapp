@@ -1,0 +1,48 @@
+{%  extends 'home/base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block content %}
+    
+<Button><a  href="{% url 'home'  %}"> Back to Home</a></Button>
+
+
+<table class="table table-striped">
+   
+    <thead>
+      <tr>
+        <th scope="col"> Names </th>
+        <th scope="col">Reg NO</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+   
+      <tr>
+        <th scope="row">GASANA Celestin</th>
+        <td>221009917</td>
+      </tr>
+
+      
+      <tr>
+        <th scope="row">Espoir M NGABO</th>
+        <td>219013757</td>
+      </tr>
+
+      <tr>
+        <th scope="row">Emmanuel UZAYISENGA</th>
+        <td>221000424</td>
+      </tr>
+
+      <tr>
+        <th scope="row">David NIYITEGEKA</th>
+        <td>220020693</td>
+      </tr>
+      
+  
+      
+    </tbody>
+  </table>
+
+
+
+{% endblock %}
